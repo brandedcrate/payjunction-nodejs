@@ -1,3 +1,7 @@
+payjunction-nodejs
+==================
+
+```javascript
 var PayJunctionClient = require('./lib/payjunction');
 
 var client = new PayJunctionClient({
@@ -25,3 +29,4 @@ client.customerCreate({
 client.customerDelete(1).on('complete', function(data){
   console.log(data);
 });
+```
