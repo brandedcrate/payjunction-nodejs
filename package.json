@@ -1,0 +1,18 @@
+{
+  "name": "payjunction",
+  "version": "0.0.0",
+  "description": "PayJunction API client for node.js",
+  "main": "./lib/payjunction",
+  "scripts": {
+    "test": "./node_modules/.bin/vows --spec"
+  },
+  "author": "Stephen Crosby",
+  "license": "BSD",
+  "devDependencies": {
+    "vows": "~0.7.0"
+  },
+  "dependencies": {
+    "restler": "~3.2.0",
+    "underscore": "~1.6.0"
+  }
+}
