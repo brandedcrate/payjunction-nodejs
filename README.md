@@ -1,17 +1,37 @@
-payjunction-nodejs
-==================
+# payjunction-nodejs
 
 ```javascript
-var PayJunctionClient = require('./lib/payjunction');
+var PayJunctionClient = require('payjunction');
+```
 
-var client = new PayJunctionClient({
+## instantiate the api client
+```javascript
+var payjunction = new PayJunctionClient({
   username: 'YOUR-USERNAME',
   password: 'YOUR-PASSWORD',
   appkey: 'YOUR-APP-KEY',
   endpoint: 'https://api.payjunctionlabs.com' // test endpoint
 });
+```
 
-client.customerCreate({
+## process a transaction
+```javascript
+payjunction.transaction.create({
+  achRoutingNumber: 104000016,
+  achAccountNumber: 123456789,
+  achAccountType: 'CHECKING',
+  achType: 'PPD',
+  status: 'CAPTURE',
+  action: 'CHARGE',
+  amountBase: '21.00'
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
+## create a customer
+```javascript
+client.customer.create({
   companyName: 'ACME, inc.',
   email: 'customer@acme.com',
   identifier: 'your-custom-id',
@@ -25,8 +45,11 @@ client.customerCreate({
 }).on('complete', function(data){
   console.log(data);
 });
+```
 
-client.customerDelete(1).on('complete', function(data){
+## delete a customer
+```javascript
+client.customer.delete(1).on('complete', function(data){
   console.log(data);
 });
 ```

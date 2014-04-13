@@ -1,12 +1,12 @@
 {
   "name": "payjunction",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "PayJunction API client for node.js",
   "main": "./lib/payjunction",
   "scripts": {
     "test": "./node_modules/.bin/vows --spec"
   },
-  "author": "Stephen Crosby",
+  "author": "Stephen Crosby <stephen@brandedcrate.com> (http://www.brandedcrate.com/)",
   "license": "BSD",
   "devDependencies": {
     "vows": "~0.7.0"
