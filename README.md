@@ -29,6 +29,46 @@ payjunction.transaction.create({
 });
 ```
 
+## re-bill by transaction id
+```javascript
+payjunction.transaction.create({
+  transactionId: 74600
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
+## add signature to transaction
+The signature can be a JSON document or just raw data from a capture device
+```javascript
+payjunction.transaction.addSignature({
+  id: 74600,
+  signature: '{"width":500,"height":100,"points":[[],[109,63],[109,63],[108,63],[108,62]]}'
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
+## get receipt information
+```javascript
+payjunction.receipt.read({
+  transactionId: 74600
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
+## email a receipt
+```javascript
+payjunction.receipt.email({
+  transactionId: 74600,
+  to: 'stephen@brandedcrate.com',
+  replyTo: 'foobar@anything.com'
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
 ## create a customer
 ```javascript
 client.customer.create({
