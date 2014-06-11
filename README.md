@@ -13,7 +13,7 @@ var payjunction = new PayJunctionClient({
   username: 'YOUR-USERNAME',
   password: 'YOUR-PASSWORD',
   appkey: 'YOUR-APP-KEY',
-  endpoint: 'https://api.payjunctionlabs.com' // test endpoint
+  endpoint: 'test' // or use 'live' for production
 });
 ```
 
