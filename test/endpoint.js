@@ -2,7 +2,7 @@ var PayjunctionClient = require('./../lib/payjunction'),
     assert = require('assert');
 
 var assert = require("assert")
-describe('transactions', function(){
+describe('endpoint', function(){
   it('uses the endpoint you provide', function(){
     var payjunction = new PayjunctionClient({
       username: '1',
