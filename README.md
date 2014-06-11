@@ -1,4 +1,7 @@
-# payjunction-nodejs
+# payjunction-nodejs [![TravisCI][travis-img-url]][travis-ci-url]
+
+[travis-img-url]: https://travis-ci.org/brandedcrate/payjunction-nodejs.svg?branch=master
+[travis-ci-url]: http://travis-ci.org/brandedcrate/payjunction-nodejs
 
 ```javascript
 var PayJunctionClient = require('payjunction');
