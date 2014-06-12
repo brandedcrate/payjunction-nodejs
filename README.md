@@ -17,22 +17,44 @@ var payjunction = new PayJunctionClient({
 });
 ```
 
-## process a transaction
+## transactions
+### credit card (keyed)
+```javascript
+payjunction.transaction.create({
+  cardNumber: 4444333322221111,
+  cardExpMonth: '01',
+  cardExpYear: '18',
+  cardCvv: 999,
+  amountBase: '99.50'
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
+### credit card (swiped)
+```javascript
+payjunction.transaction.create({
+  cardTrack: '%B4444333322221111^First/Last^1712980100000?;4444333322221111=1712980100000?',
+  amountBase: '12.00'
+}).on('complete', function(data){
+  console.log(data);
+});
+```
+
+### ach
 ```javascript
 payjunction.transaction.create({
   achRoutingNumber: 104000016,
   achAccountNumber: 123456789,
   achAccountType: 'CHECKING',
   achType: 'PPD',
-  status: 'CAPTURE',
-  action: 'CHARGE',
   amountBase: '21.00'
 }).on('complete', function(data){
   console.log(data);
 });
 ```
 
-## re-bill by transaction id
+### re-bill by transaction id
 ```javascript
 payjunction.transaction.create({
   transactionId: 74600
@@ -41,7 +63,8 @@ payjunction.transaction.create({
 });
 ```
 
-## add signature to transaction
+## signatures
+### add signature to transaction
 The signature can be a JSON document or just raw data from a capture device
 ```javascript
 payjunction.transaction.addSignature({
@@ -52,7 +75,8 @@ payjunction.transaction.addSignature({
 });
 ```
 
-## get receipt information
+## receipts
+### get receipt information
 ```javascript
 payjunction.receipt.read({
   transactionId: 74600
@@ -61,7 +85,7 @@ payjunction.receipt.read({
 });
 ```
 
-## email a receipt
+### email a receipt
 ```javascript
 payjunction.receipt.email({
   transactionId: 74600,
@@ -72,7 +96,8 @@ payjunction.receipt.email({
 });
 ```
 
-## create a customer
+## customers
+### create a customer
 ```javascript
 client.customer.create({
   companyName: 'ACME, inc.',
@@ -90,7 +115,7 @@ client.customer.create({
 });
 ```
 
-## delete a customer
+### delete a customer
 ```javascript
 client.customer.delete(1).on('complete', function(data){
   console.log(data);
