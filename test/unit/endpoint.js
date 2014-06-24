@@ -1,4 +1,4 @@
-var PayjunctionClient = require('./../lib/payjunction'),
+var PayjunctionClient = require('lib/payjunction'),
     assert = require('assert');
 
 var assert = require("assert")

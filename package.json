@@ -4,7 +4,9 @@
   "description": "PayJunction API client for node.js",
   "main": "./lib/payjunction",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha ./test/unit && ./node_modules/.bin/mocha ./test/integration",
+    "test-unit": "./node_modules/.bin/mocha ./test/unit",
+    "test-integration": "./node_modules/.bin/mocha ./test/integration"
   },
   "author": "Stephen Crosby <stephen@brandedcrate.com> (http://www.brandedcrate.com/)",
   "license": "BSD",
