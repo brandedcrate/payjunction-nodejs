@@ -4,7 +4,7 @@
   "description": "PayJunction API client for node.js",
   "main": "./lib/payjunction",
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./test/unit && ./node_modules/.bin/mocha ./test/integration",
+    "test": "./node_modules/.bin/mocha --reporter spec ./test/unit && ./node_modules/.bin/mocha --reporter spec ./test/integration",
     "test-unit": "./node_modules/.bin/mocha ./test/unit",
     "test-integration": "./node_modules/.bin/mocha ./test/integration"
   },
