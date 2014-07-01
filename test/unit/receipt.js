@@ -17,7 +17,7 @@ describe('receipts', function(){
   describe('read', function(){
     beforeEach(function(done){
       var test = this;
-      this.transaction = payjunction.receipt.read({ transactionId: 1234 });
+      this.transaction = payjunction.receipt.read(1234);
 
       this.transaction.on('complete', function(data){
         test.data = data;
@@ -37,7 +37,7 @@ describe('receipts', function(){
   describe('readThermal', function(){
     beforeEach(function(done){
       var test = this;
-      this.transaction = payjunction.receipt.readThermal({ transactionId: 1234 });
+      this.transaction = payjunction.receipt.readThermal(1234);
 
       this.transaction.on('complete', function(data){
         test.data = data;
@@ -57,7 +57,7 @@ describe('receipts', function(){
   describe('readFullpage', function(){
     beforeEach(function(done){
       var test = this;
-      this.transaction = payjunction.receipt.readFullpage({ transactionId: 1234 });
+      this.transaction = payjunction.receipt.readFullpage(1234);
 
       this.transaction.on('complete', function(data){
         test.data = data;
@@ -77,8 +77,7 @@ describe('receipts', function(){
   describe('email', function(){
     beforeEach(function(done){
       var test = this;
-      this.transaction = payjunction.receipt.email({
-        transactionId: 1235,
+      this.transaction = payjunction.receipt.email(1235, {
         otherData: 'hi'
       });
 

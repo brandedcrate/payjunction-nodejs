@@ -35,8 +35,7 @@ describe('receipts', function(){
   describe('send a receipt', function(){
     it('creates a transaction and sends a receipt', function(done){
       createTransaction(function(data){
-        payjunction.receipt.email({
-          transactionId: data.transactionId,
+        payjunction.receipt.email(data.transactionId, {
           to: 'stephen+automation@brandedcrate.com',
           replyTo: 'foobar@whatever.com',
           requestSignature: true
@@ -58,9 +57,7 @@ describe('receipts', function(){
     });
 
     it('creates a transaction and reads the receipt', function(done){
-      payjunction.receipt.read({
-        transactionId: this.data.transactionId
-      }).on('complete', function(data, response){
+      payjunction.receipt.read(this.data.transactionId).on('complete', function(data, response){
         assert.equal(response.statusCode, 200);
         assert.equal(data.hasOwnProperty('documents'), true);
         done();
@@ -68,9 +65,7 @@ describe('receipts', function(){
     });
 
     it('creates a transaction and reads the thermal receipt', function(done){
-      payjunction.receipt.readThermal({
-        transactionId: this.data.transactionId
-      }).on('complete', function(data, response){
+      payjunction.receipt.readThermal(this.data.transactionId).on('complete', function(data, response){
         assert.equal(response.headers['content-type'], 'text/html');
         assert.equal(data.length > 0, true);
         done();
@@ -78,9 +73,7 @@ describe('receipts', function(){
     });
 
     it('creates a transaction and reads the full page receipt', function(done){
-      payjunction.receipt.readFullpage({
-        transactionId: this.data.transactionId
-      }).on('complete', function(data, response){
+      payjunction.receipt.readFullpage(this.data.transactionId).on('complete', function(data, response){
         assert.equal(response.headers['content-type'], 'text/html');
         assert.equal(data.length > 0, true);
         done();

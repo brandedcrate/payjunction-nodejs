@@ -52,7 +52,7 @@ describe('transactions', function(){
     beforeEach(function(done){
       var test = this;
 
-      this.transaction = payjunction.transaction.read({ id: 543 });
+      this.transaction = payjunction.transaction.read(543);
       this.transaction.on('complete', function(data){
         test.data = data;
         done();
@@ -71,8 +71,7 @@ describe('transactions', function(){
   describe('update', function(){
     beforeEach(function(done){
       var test = this;
-      this.transaction = payjunction.transaction.update({
-        id: 654,
+      this.transaction = payjunction.transaction.update(654, {
         foo: 'baz'
       });
 
@@ -100,8 +99,7 @@ describe('transactions', function(){
   describe('addSignature', function(){
     beforeEach(function(done){
       var test = this;
-      this.transaction = payjunction.transaction.addSignature({
-        id: 655,
+      this.transaction = payjunction.transaction.addSignature(655, {
         foo: 'baa'
       });
 

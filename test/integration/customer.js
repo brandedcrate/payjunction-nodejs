@@ -64,8 +64,7 @@ describe('customers', function(){
   describe('update a customer', function(done){
     it('creates and updates a customer', function(done){
       createCustomer(function(data){
-        payjunction.customer.update({
-          id: data.customerId,
+        payjunction.customer.update(data.customerId, {
           jobTitle: 'Head Honcho'
         }).on('complete', function(data, response){
           assert.equal(data.jobTitle, 'Head Honcho');
